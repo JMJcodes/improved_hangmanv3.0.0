@@ -4,11 +4,11 @@ const ctx = canvas.getContext("2d");
 let word = "";
 let topic = "";
 let wordBank = {
-  Fruits: ["Apple", "Grape", "Banana", "Blueberry", "Strawberry", "Fig", "Pear", "Avocado", "Cherry", "Plum", "Pineapple", "Tangelo", "Watermelon", "Canteloupe", "Lemon", "Lime", "Papaya", "Raspberry", "Apricot", "Blackberry", "Cranberry", "Oranges"],
-  Vegetables: ["Carrot", "Potato", "Spinach", "Onion", "Broccoli", "Beet", "Lettuce", "Parsley", "Spinach", "Chives", "Broccoli", "Artichoke", "Garlic", "Celery", "Rhubarb", "Peas", "Eggplant", "Cucumber", "Tomato", "Pepper", "Kale"],
-  Desserts: ["Icecream", "Cookie", "Pudding", "Cake", "Popsicle", "Cupcake", "Brownie", "Pie", "Cheesecake", "Cobbler", "Chocolate", "Candy"], 
-  Animals: ["Elephant", "Giraffe", "Kangaroo", "Zebra", "Penguin", "Goat", "Parrot", "Tucan", "Pig", "Goose", "Chicken", "Fish", "Monkey", "Rat", "Owl", "Bear", "Gorilla", "Cow", "Dog", "Donkey", "Horse", "Lion", "Deer", "Yak", "Fox", "Raccoon", "Rabbit", "Cat", "Sheep", "Sloth", "Koala", "Wolf", "Coyote", "Jaguar", "Hippopotamus", "Llama", "Alligator", "Crocodile", "Whale", "Dolphin", "Snake", "Squirrel", "Frog", "Toad", "Gopher", "Mole", "Hedgehog", "Otter", "Reindeer", "Porcupine", "Leopard", "Cheetah", "Panda", "Rhinoceros", "Bat"],
-  Colors: ["Red", "Orange", "Yellow", "Green", "Blue", "Indigo", "Violet", "Purple", "Pink", "White", "Black"],
+  fruits: ["apple", "grape", "banana", "blueberry", "strawberry", "fig", "pear", "avocado", "cherry", "plum", "pineapple", "tangelo", "watermelon", "canteloupe", "lemon", "lime", "papaya", "raspberry", "apricot", "blackberry", "cranberry", "oranges"],
+  vegetables: ["carrot", "potato", "spinach", "onion", "broccoli", "beets", "lettuce", "parsley", "chives", "artichoke", "garlic", "celery", "rhubarb", "peas", "eggplant", "cucumber", "tomato", "pepper", "kale"],
+  desserts: ["icecream", "cookie", "pudding", "cake", "popsicle", "cupcake", "brownie", "pie", "cheesecake", "cobbler", "chocolate", "candy"],
+  animals: ["elephant", "giraffe", "monkey", "zebra", "rhinoceros", "lion", "tiger", "gorilla", "hippopotamus"],
+  colors: ["red", "blue", "green", "orange", "yellow", "indigo", "violet", "purple", "pink"],
 };
 let guessedLetters = [];
 let incorrectGuesses = 0;
@@ -26,6 +26,7 @@ function drawPost() {
   ctx.lineTo(180, 50); // top bar
   ctx.lineTo(180, 70); // rope
   ctx.stroke();
+}
 
 // Draw hangman parts
 function drawHangman(part) {
@@ -59,16 +60,11 @@ function drawHangman(part) {
 function startGame(selectedTopic) {
   topic = selectedTopic;
   const words = wordBank[selectedTopic];
-  word = words[Math.floor(Math.random() * words.length)].toLowerCase();
+  word = words[Math.floor(Math.random() * words.length)];
   guessedLetters = [];
   incorrectGuesses = 0;
   ctx.clearRect(0, 0, canvas.width, canvas.height); // clear canvas
-  drawPost();
-
-  document.getElementById("topic").innerText = `Topic: ${selectedTopic}`;
-  document.getElementById("wordDisplay").innerText = "_ ".repeat(word.length);
-  document.getElementById("message").innerText = "";
-} // draw the post
+  drawPost(); // draw the post
 
   document.getElementById("topic").innerText = `Topic: ${selectedTopic}`;
   document.getElementById("wordDisplay").innerText = "_ ".repeat(word.length);
@@ -84,6 +80,7 @@ function submitGuess() {
   if (!guess) return;
 
   if (guess.length === 1) {
+    // Handle single letter guesses
     if (guessedLetters.includes(guess)) {
       document.getElementById("message").innerText = "You already guessed that letter!";
       return;
@@ -103,6 +100,7 @@ function submitGuess() {
       }
     }
   } else if (guess.length > 1) {
+    // Handle full word guesses
     if (guess === word) {
       document.getElementById("wordDisplay").innerText = word.split("").join(" ");
       document.getElementById("message").innerText = `Congratulations! You correctly guessed the word: ${word}`;
@@ -117,12 +115,10 @@ function submitGuess() {
     }
   }
 }
+
 // Update word display
 function updateWordDisplay() {
-  const display = word
-    .split("")
-    .map((char) => (guessedLetters.includes(char) ? char : "_"))
-    .join(" ");
+  const display = word.split("").map((char) => (guessedLetters.includes(char) ? char : "_")).join(" ");
   document.getElementById("wordDisplay").innerText = display;
 }
 
