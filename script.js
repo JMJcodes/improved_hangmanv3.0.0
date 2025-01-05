@@ -4,11 +4,11 @@ const ctx = canvas.getContext("2d");
 let word = "";
 let topic = "";
 let wordBank = {
-  Fruits: ["Apple", "Grape", "Banana", "Blueberry", "Strawberry", "Fig", "Pear", "Avocado", "Cherry", "Plum", "Pineapple", "Tangelo", "Watermelon", "Canteloupe", "Lemon", "Lime", "Papaya", "Raspberry", "Apricot", "Blackberry", "Cranberry", "Oranges"],
-  Vegetables: ["Carrot", "Potato", "Spinach", "Onion", "Broccoli", "Beet", "Lettuce", "Parsley", "Spinach", "Chives", "Broccoli", "Artichoke", "Garlic", "Celery", "Rhubarb", "Peas", "Eggplant", "Cucumber", "Tomato", "Pepper", "Kale"],
-  Desserts: ["Icecream", "Cookie", "Pudding", "Cake", "Popsicle", "Cupcake", "Brownie", "Pie", "Cheesecake", "Cobbler", "Chocolate", "Candy"], 
-  Animals: ["Elephant", "Giraffe", "Kangaroo", "Zebra", "Penguin", "Goat", "Parrot", "Tucan", "Pig", "Goose", "Chicken", "Fish", "Monkey", "Rat", "Owl", "Bear", "Gorilla", "Cow", "Dog", "Donkey", "Horse", "Lion", "Deer", "Yak", "Fox", "Raccoon", "Rabbit", "Cat", "Sheep", "Sloth", "Koala", "Wolf", "Coyote", "Jaguar", "Hippopotamus", "Llama", "Alligator", "Crocodile", "Whale", "Dolphin", "Snake", "Squirrel", "Frog", "Toad", "Gopher", "Mole", "Hedgehog", "Otter", "Reindeer", "Porcupine", "Leopard", "Cheetah", "Panda", "Rhinoceros", "Bat"],
-  Colors: ["Red", "Orange", "Yellow", "Green", "Blue", "Indigo", "Violet", "Purple", "Pink", "White", "Black"],
+  fruits: ["apple", "grape", "banana", "blueberry", "strawberry", "fig", "pear", "avocado", "cherry", "plum", "pineapple", "tangelo", "watermelon", "canteloupe", "lemon", "lime", "papaya", "raspberry", "apricot", "blackberry", "cranberry", "oranges"],
+  vegetables: ["carrot", "potato", "spinach", "onion", "broccoli", "beets", "lettuce", "parsley", "spinach", "chives", "broccoli", "artichoke", "garlic", "celery", "rhubarb", "peas", "eggplant", "cucumber", "tomato", "pepper", "kale"],
+  desserts: ["icecream", "cookie", "pudding", "cake", "popsicle", "cupcake", "brownie", "pie", "cheesecake", "cobbler", "chocolate", "candy"],
+  animals: ["elephant", "giraffe", "kangaroo", "zebra", "penguin", "goat", "parrot", "tucan", "pig", "goose", "chicken", "fish", "monkey", "rat", "owl", "bear", "gorilla", "cow", "dog", "donkey", "horse", "lion", "deer", "yak", "fox", "raccoon", "rabbit", "cat", "sheep", "sloth", "koala", "wolf", "coyote", "jaguar", "hippopotamus", "llama", "alligator", "crocodile", "whale", "dolphin", "snake", "squirrel", "frog", "toad", "gopher", "mole", "hedgehog", "otter", "reindeer", "porcupine", "leopard", "cheetah", "panda", "rhinoceros", "bat"],
+  colors: ["red", "orange", "yellow", "green", "blue", "indigo", "violet", "purple", "pink", "white", "black"],
 };
 let guessedLetters = [];
 let incorrectGuesses = 0;
