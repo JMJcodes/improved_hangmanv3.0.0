@@ -8,7 +8,7 @@ let wordBank = {
   Vegetables: ["Carrot", "Potato", "Spinach", "Onion", "Broccoli", "Beet", "Lettuce", "Parsley", "Spinach", "Chives", "Broccoli", "Artichoke", "Garlic", "Celery", "Rhubarb", "Peas", "Eggplant", "Cucumber", "Tomato", "Pepper", "Kale"],
   Desserts: ["Icecream", "Cookie", "Pudding", "Cake", "Popsicle", "Cupcake", "Brownie", "Pie", "Cheesecake", "Cobbler", "Chocolate", "Candy"], 
   Animals: ["Elephant", "Giraffe", "Kangaroo", "Zebra", "Penguin", "Goat", "Parrot", "Tucan", "Pig", "Goose", "Chicken", "Fish", "Monkey", "Rat", "Owl", "Bear", "Gorilla", "Cow", "Dog", "Donkey", "Horse", "Lion", "Deer", "Yak", "Fox", "Raccoon", "Rabbit", "Cat", "Sheep", "Sloth", "Koala", "Wolf", "Coyote", "Jaguar", "Hippopotamus", "Llama", "Alligator", "Crocodile", "Whale", "Dolphin", "Snake", "Squirrel", "Frog", "Toad", "Gopher", "Mole", "Hedgehog", "Otter", "Reindeer", "Porcupine", "Leopard", "Cheetah", "Panda", "Rhinoceros", "Bat"],
-  Colors: ["Red", "Orange", "Yellow", "Green", "Blue", "Indigo", "Violet", "Purple", "Pink", "White", "Black"]
+  Colors: ["Red", "Orange", "Yellow", "Green", "Blue", "Indigo", "Violet", "Purple", "Pink", "White", "Black"],
 };
 let guessedLetters = [];
 let incorrectGuesses = 0;
